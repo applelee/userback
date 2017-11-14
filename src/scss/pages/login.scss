@@ -1,0 +1,45 @@
+.login-container,.register-container{
+  position:relative;overflow:hidden;
+  .el-input--large .el-input__inner{height:52px;padding-left:55px;}
+  // .el-checkbox__label{padding-left:15px;}
+}
+
+.window{width:740px;min-height:490px;position:absolute;background-color:white;left:50%;top:50%;margin:-245px 0 0 -370px;box-shadow:0 0 50px rgba(0,0,0,0.05);}
+.register-container{
+  .window{margin-top:-280px;}
+}
+.header{
+  height:50px;background-color:#0db897;
+  span{font-size:20px;color:#eef3f2;line-height:50px;margin-left:20px;}
+}
+.content{}
+.form-box{margin:30px 110px;}
+.register-container .form-box{margin:40px 60px 40px 40px;}
+.form-item{
+  margin-bottom:30px;position:relative;
+  &:last-child{padding-top:20px;margin-bottom:0;}
+
+  i{display:block;width:30px;height:30px;position:absolute;z-index:50;left:12px;top:12px;}
+  .icon-name{background-image:url('../../assets/images/username.png');}
+  .icon-password{background-image:url('../../assets/images/password.png');}
+
+  label{margin-left:10px;}
+  a{
+    color:#6e7c79;
+    &:first-child{float:left;padding-left:15px;}
+    &:last-child{float:right;padding-right:15px;}
+    &:hover{text-decoration:underline;}
+  }
+  .login-bottom{
+    display:block;height:56px;width:100%;line-height:56px;text-align:center;font-size:24px;color:white;background-color:#0db897;border-radius:3px;cursor:pointer;
+    &:hover{box-shadow:0 5px 30px rgba(0,0,0,0.1);}
+  }
+}
+.btn-go{margin-left:10px}
+.tiaokuan{font-weight:normal;text-decoration:underline;color:#666;margin-left:10px;cursor:pointer;}
+
+// 样式重写
+.el-select .el-input{width: 130px;}
+.input-with-select .el-input-group__prepend{background-color: #fff;}
+.el-checkbox__label{padding-left:10px;}
+.el-checkbox{padding-left:0;}
