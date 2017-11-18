@@ -118,6 +118,7 @@ export default {
   name: 'Release',
   data() {
     return {
+      tinymce: '',
       baseURL: `${conf.baseURL}/upload-images`,
       form: {
         userId: this.$getLS('accessToken'),
@@ -141,17 +142,15 @@ export default {
           { required: true, message: '请输入作者名或昵称', trigger: 'blur' },
         ],
       },
-      h: 'Text to bind',
-      content: '<h1>Default content</h1>',
-      options: {},
     };
   },
   mounted() {
     // 获取集联数据
     this.categories();
 
-    tinymce.init({
-      selector: 'textarea',
+    // 富文本
+    this.tinymce = tinymce.init({
+      selector: 'textarea#editor',
       height: 500,
       plugins: [
         'advlist autolink lists link image charmap print preview anchor',
@@ -207,6 +206,7 @@ export default {
         return this.storage(this.$stringify({
           ...this.form,
           submitType: type,
+          content: tinymce.get('editor').getContent(),
         }))
         .then((res) => {
           console.log(res);
