@@ -141,29 +141,18 @@ export default {
           { required: true, message: '请输入作者名或昵称', trigger: 'blur' },
         ],
       },
+      h: 'Text to bind',
+      content: '<h1>Default content</h1>',
+      options: {},
     };
   },
   mounted() {
     // 获取集联数据
     this.categories();
 
-    // 富文本狂初始化
-    // tinymce.init({
-    //   selector: 'textarea#editor',
-    //   // 获得editor，当有多个textarea实例时会多次调用setup
-    //   setup: (editor) => {
-    //     // 初次化编辑器
-    //     editor.on('init', () => {
-    //       // 设置默认值
-    //       editor.setContent('<p>Default Value!</p>');
-    //       // 注册事件
-    //       editor.on('input change undo redo', () => {
-    //         // 获得编辑结果
-    //         console.log(editor.getContent());
-    //       });
-    //     });
-    //   },
-    // });
+    tinymce.init({
+      selector: 'textarea',
+    });
   },
   computed: {
     ...mapState('release', [
@@ -172,6 +161,7 @@ export default {
     ]),
   },
   methods: {
+    changed() {},
     ...mapActions('release', [
       'categories',
       'storage',
